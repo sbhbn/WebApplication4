@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "首頁";
+}
+<h2>登入</h2>
+
+@if (ViewBag.LoginFailed != null && (bool)ViewBag.LoginFailed)
+{
+    <div style="color:red;">登入失敗，請重試。</div>
+}
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <label>帳號：</label>
+    @Html.TextBox("username")
+    <br />
+    <label>密碼：</label>
+    @Html.Password("password")
+    <br />
+    <button type="submit">登入</button>
+}
